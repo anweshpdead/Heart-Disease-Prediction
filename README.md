@@ -44,3 +44,16 @@ UCI Heart Disease Dataset
 - SQLite
 
 ## 📂 Project Structure
+
+## 📸 Screenshots
+
+### Homepage
+![Homepage](screenshots/homepage1.png)
+![Homepage](screenshots/homepage2.png)
+![Homepage](screenshots/homepage3.png)
+
+### Prediction Result
+![Prediction](screenshots/prediction.png)
+
+### Prediction History
+![History](screenshots/history.png)

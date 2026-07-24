@@ -1,8 +1,12 @@
+from flask_cors import CORS
 import sqlite3
 from datetime import datetime
 from flask import Flask, request, jsonify
 import joblib
 import numpy as np
+
+app = Flask(__name__)
+CORS(app)
 
 app = Flask(__name__)
 def create_database():
@@ -124,4 +128,4 @@ def history():
     return jsonify(history_data)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

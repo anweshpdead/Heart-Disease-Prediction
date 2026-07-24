@@ -21,7 +21,7 @@ document.getElementById("predictionForm").addEventListener("submit", function(ev
     document.getElementById("result").innerHTML = "🧠 AI is analyzing...";
 
 
-    fetch("http://127.0.0.1:5000/predict", {
+    fetch("https://heart-disease-prediction-1-ziqj.onrender.com/predict", {
 
         method: "POST",
 

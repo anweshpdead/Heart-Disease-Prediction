@@ -1,29 +1,46 @@
 # ❤️ Heart Disease Prediction System
 
-An AI-powered web application that predicts heart disease risk using Machine Learning.
+An AI-powered web application that predicts the risk of heart disease using Machine Learning.
 
-## Technologies Used
+## 🚀 Features
 
+- Machine Learning based prediction
+- Random Forest classification model
+- User-friendly web interface
+- Confidence score display
+- Prediction history storage
+- Flask REST API backend
+- Responsive healthcare dashboard
+
+## 🧠 Machine Learning
+
+### Algorithm Used:
+Random Forest Classifier
+
+### Dataset:
+UCI Heart Disease Dataset
+
+### Dataset Size:
+303 patient records
+
+### Model Accuracy:
+83.6%
+
+## 🛠️ Technologies Used
+
+### Backend:
 - Python
 - Flask
-- Random Forest Algorithm
 - Scikit-learn
+- Pandas
+- NumPy
+
+### Frontend:
 - HTML
 - CSS
 - JavaScript
+
+### Database:
 - SQLite
 
-## Features
-
-- Heart disease prediction
-- Confidence score
-- Prediction history
-- Machine Learning model
-
-## Model Accuracy
-
-83.6%
-
-## Dataset
-
-UCI Heart Disease Dataset
+## 📂 Project Structure

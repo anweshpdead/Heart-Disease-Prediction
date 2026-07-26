@@ -6,7 +6,7 @@ import joblib
 import numpy as np
 
 app = Flask(__name__)
-CORS(app, origins=["https://heart-disease-prediction-delta-bay.vercel.app"])
+CORS(app)
 
 app = Flask(__name__)
 def create_database():

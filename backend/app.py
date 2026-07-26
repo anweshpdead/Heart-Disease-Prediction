@@ -8,7 +8,6 @@ import numpy as np
 app = Flask(__name__)
 CORS(app)
 
-app = Flask(__name__)
 def create_database():
     conn = sqlite3.connect("database.db")
     cursor = conn.cursor()

@@ -38,21 +38,38 @@ document.getElementById("predictionForm").addEventListener("submit", function(ev
 
     .then(result => {
 
+        const resultCard = document.getElementById("resultCard");
+
+        resultCard.style.display = "block";
+
+
         const resultElement = document.getElementById("result");
 
         resultElement.innerHTML =
-            result.prediction +
-            "<br>Confidence: " +
-            result.confidence +
-            "%";
+            result.prediction;
+
+
+        const confidenceBar =
+            document.getElementById("confidenceBar");
+
+
+        confidenceBar.style.width =
+            result.confidence + "%";
+
 
         if (result.prediction === "Heart Disease Risk Detected") {
-            resultElement.style.color = "red";
-        } else {
-            resultElement.style.color = "green";
+
+            resultCard.className = "result-card risk";
+
+        } 
+        else {
+
+            resultCard.className = "result-card safe";
+
         }
 
     })
+
 
 
     .catch(error => {
@@ -66,41 +83,81 @@ document.getElementById("predictionForm").addEventListener("submit", function(ev
 
 });
 
+
+
 document.getElementById("historyBtn").addEventListener("click", function () {
 
-    fetch("http://127.0.0.1:5000/history")
+    fetch("https://heart-disease-prediction-1-ziqj.onrender.com/history")
 
-        .then(response => response.json())
+    .then(response => response.json())
 
-        .then(data => {
+    .then(data => {
 
-            let table = document.querySelector("#historyTable tbody");
+        const tableBody = document.querySelector("#historyTable tbody");
 
-            table.innerHTML = "";
+        tableBody.innerHTML = "";
 
-            data.forEach(record => {
+        data.forEach(item => {
 
-                table.innerHTML += `
-                    <tr>
-                        <td>${record.id}</td>
-                        <td>${record.age}</td>
-                        <td>${record.sex == 1 ? "Male" : "Female"}</td>
-                        <td>${record.prediction}</td>
-                        <td>${record.confidence}%</td>
-                        <td>${record.date}</td>
-                    </tr>
-                `;
-
-            });
+            tableBody.innerHTML += `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.age}</td>
+                <td>${item.sex}</td>
+                <td>${item.prediction}</td>
+                <td>${item.confidence}%</td>
+                <td>${item.date}</td>
+            </tr>
+            `;
 
         });
 
-});
+    })
 
+    .catch(error => {
+        console.log("History error:", error);
+    });
+
+});
 document.getElementById("resetBtn").addEventListener("click", function () {
 
     document.getElementById("result").innerHTML = "";
 
     document.getElementById("confidenceBar").style.width = "0%";
+
+});
+
+document.getElementById("historyBtn").addEventListener("click", function () {
+
+    fetch("https://heart-disease-prediction-1-ziqj.onrender.com/history")
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        const tableBody = document.querySelector("#historyTable tbody");
+
+        tableBody.innerHTML = "";
+
+        data.forEach(item => {
+
+            tableBody.innerHTML += `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.age}</td>
+                <td>${item.sex}</td>
+                <td>${item.prediction}</td>
+                <td>${item.confidence}%</td>
+                <td>${item.date}</td>
+            </tr>
+            `;
+
+        });
+
+    })
+
+    .catch(error => {
+        console.log("History error:", error);
+    });
 
 });
